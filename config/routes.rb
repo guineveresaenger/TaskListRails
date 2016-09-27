@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  root 'list#index'
+  root 'tasks#index'
 
-get '/list' => 'list#index'
+get '/tasks' => 'tasks#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
