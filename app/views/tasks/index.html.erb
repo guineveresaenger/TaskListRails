@@ -1,0 +1,9 @@
+<h1>Here are all your tasks.</h1>
+
+<p>
+  <% @tasks.each_with_index do |t, i| %>
+    <p>
+      <%=link_to(t[:name], "/tasks/#{i}") %>
+    </p>
+  <% end %>
+</p>
