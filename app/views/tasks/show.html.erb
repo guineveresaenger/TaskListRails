@@ -1,9 +1,9 @@
+<h1>Task#show</h1>
 
+<h3><%# @task.id %></h3>
+<h3><%= @task.id.to_s + " - " + @task.title %></h3>
+<ul>
 
-<p>
-  <h3>Task: <%= @task[:name] %> </h3>
-  <p>Description: <%= @task[:description]%></p>
-  <p>Completion Status: <%= @task[:status]%></p>
-  <p>Date completed: <%= @task[:date]%></p>
-
-</p>
+  <li>Description: <%= @task.description %></li>
+  <li>Date completed: <%= @task.completed_at %></li>
+</ul>

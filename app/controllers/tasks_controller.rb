@@ -1,80 +1,30 @@
 class TasksController < ApplicationController
 
   def index
-    @tasks = [
-      {
-        name: "laundry",
-        description: "Wash all the clothes!",
-        status: "TODO",
-        date: "ASAP"
-      },
-      {
-        name: "dishes",
-        description: "Wash all the pots!",
-        status: "TODO",
-        date: "Tonight"
-      },
-      {
-        name: "homework",
-        description: "Code all the things!",
-        status: "TODO",
-        date: "tonight"
-      },
-      {
-        name: "Cuddles",
-        description: "Cuddle all the people!",
-        status: "Ongoing",
-        date: "Every day whenever possible"
-      }
-    ]
-
-
+    @tasks = Task.all
   end
 
   def show
-    @tasks = [
-      {
-        name: "laundry",
-        description: "Wash all the clothes!",
-        status: "TODO",
-        date: "ASAP"
-      },
-      {
-        name: "dishes",
-        description: "Wash all the pots!",
-        status: "TODO",
-        date: "Tonight"
-      },
-      {
-        name: "homework",
-        description: "Code all the things!",
-        status: "TODO",
-        date: "tonight"
-      },
-      {
-        name: "Cuddles",
-        description: "Cuddle all the people!",
-        status: "Ongoing",
-        date: "Every day whenever possible"
-      }
-    ]
+    @task = Task.find(params[:id])
 
-    puts "THIS IS THE ID: #{params[:id]}"
+  end
 
-    begin
-      task_id = Integer(params[:id])
-      if task_id >=0 && task_id < @tasks.length
-        @task = @tasks[task_id]
-      else
-        @task = "Invalid article ID"
-        render status: 404
-      end
-    rescue ArgumentError
-      @task = "Invalid article ID"
-      render status: 404
-    end
-    puts @task
+  def new; end
 
+  def create
+
+    # try = Task.new(params[:task])
+    # try.save
+    #
+    redirect_to tasks_path
+
+    # new_task = {
+    #   title: params[:title],
+    #   description: params[:description]
+    # }
+    #
+    # puts "HERE IS THE NEW TASK OMG REALLY? #{new_task}"
+    # redirect_to_tasks_path
   end
 
 end

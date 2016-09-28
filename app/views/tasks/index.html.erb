@@ -1,9 +1,14 @@
 <h1>Here are all your tasks.</h1>
 
+<% @tasks.each do |t| %>
+  <p>
+
+    <%= t.id.to_s + "." %>
+    <%= link_to t.title, task_path(t) %>
+  </p>
+<% end %>
+
+<h3>Add a new task!</h3>
 <p>
-  <% @tasks.each_with_index do |t, i| %>
-    <p>
-      <%=link_to(t[:name], "/tasks/#{i}") %>
-    </p>
-  <% end %>
+<%= link_to "Do it here", tasks_new_path %>
 </p>
