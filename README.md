@@ -46,7 +46,7 @@ In this wave we will add the first set of user interactivity and persistence.
     1. Ask the user to confirm that they definitely want to delete the task.
     1. Delete the task from the database and redirect the user back to the list of remaining tasks.
 
-<!-- ## 🌊 Wave 3
+## 🌊 Wave 3
 In this wave we will extend the interactivity with users, allowing them to edit existing tasks in a couple of different ways. As always, follow _RESTful_ conventions when implementing these features.
 
 - Add the ability for the user to mark a task complete
@@ -57,7 +57,5 @@ In this wave we will extend the interactivity with users, allowing them to edit 
   - Submitting the form from the `edit` action should _update_ the existing task; not create a new one.
     - Research: ActiveRecord's `update` method.
   - Link to the `edit` action from the task's `show` page.
-  - DRY up your code by reusing the view code from the `new` functionality
+  - Optional:  DRY up your code by reusing the view code from the `new` functionality
     - Hint: Rendering _partials_ in Rails.
-
- -->
