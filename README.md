@@ -34,7 +34,7 @@ This wave is where we will introduce the view layer to interact with our applica
 - All markup in all views should have semantic relevance.
 
 
-<!-- ## Wave 2
+ ## Wave 2
 In this wave we will add the first set of user interactivity and persistence.
 
 - Be able to create a new task:
@@ -44,7 +44,7 @@ In this wave we will add the first set of user interactivity and persistence.
   - Add a route and controller action whose responsibility is deleting a task (RESTful routes)
   - On the home page, add a button or link for each task that will, once clicked...
     1. Ask the user to confirm that they definitely want to delete the task.
-    1. Delete the task from the database and redirect the user back to the list of remaining tasks -->
+    1. Delete the task from the database and redirect the user back to the list of remaining tasks.
 
 <!-- ## 🌊 Wave 3
 In this wave we will extend the interactivity with users, allowing them to edit existing tasks in a couple of different ways. As always, follow _RESTful_ conventions when implementing these features.
