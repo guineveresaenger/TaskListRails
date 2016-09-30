@@ -5,9 +5,25 @@
 
     <%= t.id.to_s + "." %>
     <%= link_to t.title, task_path(t) %> <br>
-    <%= link_to "Edit this task!", task_edit_path(t) %>
-    <%= link_to "Delete this task!", task_path(t), :method =>'delete' %>
+    <%# link_to "Edit this task!", task_edit_path(t) %>
+    <%= link_to "Delete this task!", task_path(t), :method =>'delete',data: { confirm: "Are you really sure?"} %>
+
+    <% if !t.completed_at %>
+      <%= form_for t, method: :patch do |f|%>
+
+      <%= f.label :done, "Done?"%>
+
+      <%# f.check_box :done %>
+      <%= f.hidden_field :done, :value => "true" %>
+      <%= f.submit "I did this!" %>
+      <% end %>
+    <% else %>
+      <p>
+        This task is already done.
+      </p>
+    <% end  %>
   </p>
+
 <% end %>
 
 <h3>Add a new task!</h3>

@@ -4,51 +4,60 @@ class TasksController < ApplicationController
     @tasks = Task.all
   end
 
+
   def show
     @task = Task.find(params[:id])
-
   end
+
 
   def new
     @task = Task.new
+
   end
 
-  def create
 
+  def create
     @task = Task.new(task_params)
 
-    if task_params[:done] == "1"
+    # @task.set_completion_time
+
+    if task_params[:done] == "true"
       @task.completed_at = Time.now
     end
-
     if @task.save
       redirect_to tasks_path
     else
       render :new
     end
+
+    puts "MY DONENESS IS: #{@task.done}"
   end
+
 
   def edit
     @task = Task.find(params[:id])
   end
 
+
   def update
     @task = Task.find(params[:id])
 
-    # @task.set_completion_time
 
-    if task_params[:done] == "1"
+    # @task.set_completion_time
+    if task_params[:done] == "true"
       @task.completed_at = Time.now
-    else
-      @task.completed_at = nil
     end
+
+
 
     if @task.update(task_params)
       redirect_to tasks_path
     else
       render :edit
     end
+    puts "MY DONENESS IS: #{@task.done}"
   end
+
 
   def destroy
     @task = Task.find(params[:id])
