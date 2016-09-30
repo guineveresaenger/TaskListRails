@@ -16,16 +16,37 @@ class TasksController < ApplicationController
   def create
 
     @task = Task.new(task_params)
-    puts task_params[:done]
+
     if task_params[:done] == "1"
       @task.completed_at = Time.now
-      @task.save
     end
 
     if @task.save
       redirect_to tasks_path
     else
       render :new
+    end
+  end
+
+  def edit
+    @task = Task.find(params[:id])
+  end
+
+  def update
+    @task = Task.find(params[:id])
+
+    # @task.set_completion_time
+
+    if task_params[:done] == "1"
+      @task.completed_at = Time.now
+    else
+      @task.completed_at = nil
+    end
+
+    if @task.update(task_params)
+      redirect_to tasks_path
+    else
+      render :edit
     end
   end
 

@@ -1,0 +1,10 @@
+<%= form_for @task, method: :patch do |f| %>
+<%= f.label :title %>
+<%= f.text_field :title %>
+<%= f.label :description %>
+<%= f.text_field :description %>
+<%= f.label :done, "Done?"%>
+<%= f.check_box :done %>
+
+<%= f.submit "Go make me work!" %>
+<% end %>
