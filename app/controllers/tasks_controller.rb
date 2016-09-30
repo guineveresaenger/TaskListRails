@@ -9,22 +9,37 @@ class TasksController < ApplicationController
 
   end
 
-  def new; end
+  def new
+    @task = Task.new
+  end
 
   def create
 
-    # try = Task.new(params[:task])
-    # try.save
-    #
-    redirect_to tasks_path
+    @task = Task.new(task_params)
+    puts task_params[:done]
+    if task_params[:done] == "1"
+      @task.completed_at = Time.now
+      @task.save
+    end
 
-    # new_task = {
-    #   title: params[:title],
-    #   description: params[:description]
-    # }
-    #
-    # puts "HERE IS THE NEW TASK OMG REALLY? #{new_task}"
-    # redirect_to_tasks_path
+    if @task.save
+      redirect_to tasks_path
+    else
+      render :new
+    end
+  end
+
+  def destroy
+    @task = Task.find(params[:id])
+    @task.destroy
+    redirect_to tasks_path
+  end
+
+
+  private
+
+  def task_params
+    params.require(:task).permit(:title, :description, :done)
   end
 
 end

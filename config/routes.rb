@@ -7,6 +7,8 @@ get '/tasks/:id', to: 'tasks#show', as: 'task'
 
 post '/tasks' => 'tasks#create'
 
+delete '/tasks/:id' => 'tasks#destroy', as: 'task_destroy'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
