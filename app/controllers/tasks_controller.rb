@@ -18,7 +18,6 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
-
     if @task.save
       redirect_to tasks_path
     else
@@ -36,10 +35,6 @@ class TasksController < ApplicationController
   def update
     @task = Task.find(params[:id])
 
-    # if task_params[:done] == "true"
-    #   @task.completed_at = Time.now
-    # end
-
     if @task.update(task_params)
       redirect_to tasks_path
     else
@@ -50,8 +45,7 @@ class TasksController < ApplicationController
 
 
   def destroy
-    @task = Task.find(params[:id])
-    @task.destroy
+    Task.find(params[:id]).destroy
     redirect_to tasks_path
   end
 
