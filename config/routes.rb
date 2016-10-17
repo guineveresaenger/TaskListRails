@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+get "/auth/:provider/callback" =>  "sessions#create"
+get "/sessions/login_failure", to: "sessions#login_failure", as: "login_failure"
+
 
 root 'tasks#index'
 get '/tasks' => 'tasks#index'

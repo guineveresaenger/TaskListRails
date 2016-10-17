@@ -1,7 +1,11 @@
 class TasksController < ApplicationController
 
   def index
-    @tasks = Task.all
+    if session[:user_id].nil?
+      redirect_to sessions_path
+    else
+      @tasks = Task.all
+    end
   end
 
 
