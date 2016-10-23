@@ -1,6 +1,8 @@
-<h1>Here are all your tasks.</h1>
+<h1>Welcome, <%= @user.email%>! Here are all your tasks.</h1>
 
+<p>
 <%= link_to "Logout", sessions_path, method: :delete %>
+</p>
 
 <% @tasks.each do |t| %>
   <p>
@@ -17,7 +19,7 @@
       <% end %>
     <% else %>
       <p>
-        Yay!
+        Yay! You did the thing! You are awesome!
       </p>
     <% end  %>
   </p>
